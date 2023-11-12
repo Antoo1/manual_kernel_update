@@ -1,5 +1,6 @@
 #!/bin/bash
 
+apt --fix-broken install -y
 # clean all
 apt update -y
 apt clean all
