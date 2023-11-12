@@ -3,7 +3,7 @@ cdrom
 
 lang en_US.UTF-8
 keyboard us
-timezone UTC
+timezone UTC+3
 
 network --onboot yes --bootproto=dhcp --device=eth0 --activate --noipv6
 
