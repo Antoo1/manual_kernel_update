@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # clean all
-yum update -y
-yum clean all
+apt update -y
+apt clean all
 
 
 # Install vagrant default key
@@ -16,7 +16,7 @@ chown -R vagrant:vagrant /home/vagrant/.ssh
 rm -rf /tmp/*
 rm  -f /var/log/wtmp /var/log/btmp
 rm -rf /var/cache/* /usr/share/doc/*
-rm -rf /var/cache/yum
+rm -rf /var/cache/apt
 rm -rf /vagrant/home/*.iso
 rm  -f ~/.bash_history
 history -c
