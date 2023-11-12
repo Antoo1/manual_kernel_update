@@ -3,15 +3,13 @@ MACHINES = {
   # VM name "kernel update"
   :"kernel-update" => {
               # VM box
-              :box_name => "centos/7",
+              :box_name => "ubuntu/focal64",
+              #Указываем box_version
+              :box_version => "v20231003.0.0",
               # VM CPU count
               :cpus => 2,
               # VM RAM size (Mb)
-              :memory => 1024,
-              # networks
-              :net => [],
-              # forwarded ports
-              :forwarded_port => []
+              :memory => 1024
             }
 }
 
@@ -24,18 +22,6 @@ Vagrant.configure("2") do |config|
       # Set VM base box and hostname
       box.vm.box = boxconfig[:box_name]
       box.vm.host_name = boxname.to_s
-      # Additional network config if present
-      if boxconfig.key?(:net)
-        boxconfig[:net].each do |ipconf|
-          box.vm.network "private_network", ipconf
-        end
-      end
-      # Port-forward config if present
-      if boxconfig.key?(:forwarded_port)
-        boxconfig[:forwarded_port].each do |port|
-          box.vm.network "forwarded_port", port
-        end
-      end
       # VM resources config
       box.vm.provider "virtualbox" do |v|
         # Set VM RAM size and CPU count
