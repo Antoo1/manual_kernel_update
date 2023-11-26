@@ -1,0 +1,5 @@
+packer/.vagrant
+.vagrant
+packer/Vagrantfile
+**/*.box
+
